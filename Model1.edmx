@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BoekenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Auteurs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Voornaam" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Achternaam" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Boeken">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AantalPaginas" Type="int" Nullable="false" />
+          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="Publicatie" Type="int" />
+          <Property Name="uitgeverld" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BoekenAuteurs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BoekId" Type="int" />
+          <Property Name="Auteurid" Type="int" />
+        </EntityType>
+        <EntityType Name="BoekenGenres">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Boekid" Type="int" Nullable="false" />
+          <Property Name="Genreid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Genres">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Genre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Uitgeverijen">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naam" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="BoekenModelStoreContainer">
+          <EntitySet Name="Auteurs" EntityType="Self.Auteurs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Boeken" EntityType="Self.Boeken" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BoekenAuteurs" EntityType="Self.BoekenAuteurs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BoekenGenres" EntityType="Self.BoekenGenres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Genres" EntityType="Self.Genres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uitgeverijen" EntityType="Self.Uitgeverijen" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BoekenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Auteur">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Voornaam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Achternaam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Boeken">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AantalPaginas" Type="Int32" Nullable="false" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="Publicatie" Type="Int32" />
+          <Property Name="uitgeverld" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BoekenAuteur">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BoekId" Type="Int32" />
+          <Property Name="Auteurid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BoekenGenre">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Boekid" Type="Int32" Nullable="false" />
+          <Property Name="Genreid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Genre">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Genre1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Uitgeverijen">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="BoekenEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Auteurs" EntityType="Self.Auteur" />
+          <EntitySet Name="Boekens" EntityType="Self.Boeken" />
+          <EntitySet Name="BoekenAuteurs" EntityType="Self.BoekenAuteur" />
+          <EntitySet Name="BoekenGenres" EntityType="Self.BoekenGenre" />
+          <EntitySet Name="Genres" EntityType="Self.Genre" />
+          <EntitySet Name="Uitgeverijens" EntityType="Self.Uitgeverijen" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BoekenModelStoreContainer" CdmEntityContainer="BoekenEntities">
+          <EntitySetMapping Name="Auteurs">
+            <EntityTypeMapping TypeName="BoekenModel.Auteur">
+              <MappingFragment StoreEntitySet="Auteurs">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Voornaam" ColumnName="Voornaam" />
+                <ScalarProperty Name="Achternaam" ColumnName="Achternaam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Boekens">
+            <EntityTypeMapping TypeName="BoekenModel.Boeken">
+              <MappingFragment StoreEntitySet="Boeken">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="AantalPaginas" ColumnName="AantalPaginas" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Publicatie" ColumnName="Publicatie" />
+                <ScalarProperty Name="uitgeverld" ColumnName="uitgeverld" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BoekenAuteurs">
+            <EntityTypeMapping TypeName="BoekenModel.BoekenAuteur">
+              <MappingFragment StoreEntitySet="BoekenAuteurs">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="BoekId" ColumnName="BoekId" />
+                <ScalarProperty Name="Auteurid" ColumnName="Auteurid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BoekenGenres">
+            <EntityTypeMapping TypeName="BoekenModel.BoekenGenre">
+              <MappingFragment StoreEntitySet="BoekenGenres">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Boekid" ColumnName="Boekid" />
+                <ScalarProperty Name="Genreid" ColumnName="Genreid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genres">
+            <EntityTypeMapping TypeName="BoekenModel.Genre">
+              <MappingFragment StoreEntitySet="Genres">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Genre1" ColumnName="Genre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uitgeverijens">
+            <EntityTypeMapping TypeName="BoekenModel.Uitgeverijen">
+              <MappingFragment StoreEntitySet="Uitgeverijen">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Naam" ColumnName="Naam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
